@@ -13,6 +13,7 @@ class Reader:
         with open(self.filename, "r", encoding="utf8") as file:
             word = ""
             Words = list(string.ascii_letters)
+            Words.extend(['á','é','í','ó','ú','ñ','Ñ'])
             self.info = []
 
             for i in file.read():
@@ -53,5 +54,5 @@ class Reader:
 
 
 if __name__ == "__main__":
-    r = Reader("test.txt")
+    r = Reader("español.txt")
     r.InfoToDict()
