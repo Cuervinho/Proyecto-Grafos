@@ -13,7 +13,6 @@ class Reader:
         with open(self.filename, "r", encoding="utf8") as file:
             word = ""
             Words = list(string.ascii_letters)
-            Words.extend(['á','é','í','ó','ú','ñ','Ñ'])
             self.info = []
 
             for i in file.read():
@@ -28,11 +27,20 @@ class Reader:
             json.dump(self.info, outFile)
 
         return self.info
-
     #Retorna la informacion de la palabra con todas sus repeticiones
+
+    def update(self):
+        for i in range(len(self.info)):
+            if i < len(self.info):
+                if self.info[i] == "jordan":
+                    del self.info[i]
+
+
     def InfoToDict(self):
 
         self.filetolist()
+
+        self.update()
 
         self.info_update = dict()
 
@@ -54,5 +62,5 @@ class Reader:
 
 
 if __name__ == "__main__":
-    r = Reader("español.txt")
+    r = Reader("Textos.txt")
     r.InfoToDict()
