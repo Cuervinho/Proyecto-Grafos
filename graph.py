@@ -20,14 +20,14 @@ class Reader:
                 if i in Words:
                     word += i
 
-                else:
-                    self.info.append(word.lower())
-                    word = "" 
                 #else:
-                 #   if word!='':
-                  #      self.info.append(word.lower())
-                   # word = "" 
-        #print(self.info)29
+                    #self.info.append(word.lower())
+                    #word = "" 
+                else:
+                    if word!='':
+                        self.info.append(word.lower())
+                    word = "" 
+        print(self.info)
         return self.info
 
     #Retorna la informacion de la palabra con todas sus repeticiones
@@ -43,8 +43,8 @@ class Reader:
         for i in self.info:
             self.info_update[i] += 1
 
-        if self.info_update[""]:
-            del self.info_update[""]
+        #if self.info_update[""]:
+         #   del self.info_update[""]
         
         print(self.info_update)
         return self.info_update
